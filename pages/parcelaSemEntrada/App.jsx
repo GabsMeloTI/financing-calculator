@@ -20,7 +20,7 @@ export function CalculoSemEntrada() {
     setValorParcela(valorParcelaCalculado); 
 
     const resultado = valorParcelaCalculado * numParcelas; 
-    setResultadoCalculo(resultado); 
+    setResultadoCalculo(resultado.toFixed(2)); 
   }
 
   return (
@@ -75,8 +75,8 @@ export function CalculoSemEntrada() {
           >
             <View style={styles.modal}>
                 <Text style={styles.label}>Valor total do financiamento: R${resultadoCalculo}</Text> 
-                <Text style={styles.label}>Valor das Parcelas: R${valorParcela}</Text> 
-                <Text style={styles.label}>Valor do juros: R${resultadoCalculo - valorFinanciamento}</Text> 
+                <Text style={styles.label}>Valor das Parcelas: R${parseFloat(valorParcela).toFixed(2)}</Text> 
+                <Text style={styles.label}>Valor do juros: R${parseFloat(resultadoCalculo - valorFinanciamento).toFixed(2)}</Text> 
 
                 <Button title="Fechar Modal"  onPress={() => {
                   setModalVisible(false);

@@ -7,7 +7,7 @@ export function CalculoComEntrada() {
   const [juros, setJuros] = useState('');
   const [numParcelas, setNumParcelas] = useState('');
   const [coeFinanceiro, setCoeFinanceiro] = useState('');
-  const [valorEntrada, setValorEntrada] = useState(0);
+  const [valorEntrada, setValorEntrada] = useState('');
   const [valorFinanciamento, setValorFinanciamento] = useState('');
   const [valorParcela, setValorParcela] = useState('');
   const [resultadoCalculo, setResultadoCalculo] = useState(null);
@@ -88,9 +88,9 @@ export function CalculoComEntrada() {
           >
             <View style={styles.modal}>
                 <Text style={styles.label}>Valor total do financiamento: R${resultadoCalculo}</Text> 
-                <Text style={styles.label}>Valor da entrada: R${valorEntrada}</Text> 
-                <Text style={styles.label}>Valor das Parcelas: R${valorParcela}</Text> 
-                <Text style={styles.label}>Valor do juros: R${resultadoCalculo - valorFinanciamento}</Text> 
+                <Text style={styles.label}>Valor da entrada: R${parseFloat(valorEntrada).toFixed(2)}</Text> 
+                <Text style={styles.label}>Valor das Parcelas: R${parseFloat(valorParcela).toFixed(2)}</Text> 
+                <Text style={styles.label}>Valor do juros: R${parseFloat(resultadoCalculo - valorFinanciamento).toFixed(2)}</Text> 
 
                 <Button title="Fechar Modal"  onPress={() => {
                   setModalVisible(false);

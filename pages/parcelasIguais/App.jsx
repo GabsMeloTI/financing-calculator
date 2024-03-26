@@ -19,8 +19,8 @@ export function CalculoParcelasIguais() {
     const valorParcelaCalculado = (valorFinanciamento * cf) / (1 + cf);
     setValorParcela(valorParcelaCalculado); 
 
-    const resultado = valorEntrada + (valorParcelaCalculado * numParcelas); 
-    setResultadoCalculo(resultado);
+    const resultado = parseFloat(valorEntrada) + (parseFloat(valorParcelaCalculado * numParcelas)); 
+    setResultadoCalculo(resultado.toFixed(2));
   }
 
   return (
@@ -88,8 +88,8 @@ export function CalculoParcelasIguais() {
           >
             <View style={styles.modal}>
                 <Text style={styles.label}>Valor total do financiamento: R${resultadoCalculo}</Text> 
-                <Text style={styles.label}>Valor da entrada: R${valorEntrada}</Text> 
-                <Text style={styles.label}>Valor das Parcelas: R${valorParcela}</Text>  
+                <Text style={styles.label}>Valor da entrada: R${parseFloat(valorEntrada).toFixed(2)}</Text> 
+                <Text style={styles.label}>Valor das Parcelas: R${parseFloat(valorParcela).toFixed(2)}</Text>  
 
                 <Button title="Fechar Modal"  onPress={() => {
                   setModalVisible(false);
